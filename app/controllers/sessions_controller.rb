@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to users_path(@user)
         else
+            #flash.now[:error] = "Wrong login. Please try again."
             render :login
         end
     end
