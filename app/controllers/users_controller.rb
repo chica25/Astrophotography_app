@@ -4,13 +4,6 @@ class UsersController < ApplicationController
 
     #loads the signup form
 
-    def index
-        @users = User.all
-    end
-
-    def show
-    end
-
     def new
         @user = User.new
     end
@@ -26,6 +19,14 @@ class UsersController < ApplicationController
             # flash.now[:message] = "Please try again"
             render :new
         end
+    end
+
+
+    def index
+        @users = User.all
+    end
+
+    def show
     end
 
     def edit

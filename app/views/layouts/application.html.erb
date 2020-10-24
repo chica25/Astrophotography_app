@@ -13,6 +13,23 @@
 
 <!--<%=link_to 'Log Out', logout_path, method: :delete%>-->
 
-    <%= yield %>
+<% if !flash[:error].blank? %>
+    <div class="error">
+      <%= flash[:error] %>
+      </div>
+  <% end %> 
+
+<% if !flash[:message].blank? %>
+  <div class="message">
+  <%= flash[:message] %>
+  </div>
+ <% end %>
+
+ 
+<%=render_navigation%>
+
+<%= yield %>
+
+
   </body>
 </html>

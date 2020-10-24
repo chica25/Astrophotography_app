@@ -1,11 +1,14 @@
 
-<%=link_to "Home", root_path%>
-<%=link_to "back to users", users_path%>
+<%=link_to "Dashboard", root_path%>
+<%=link_to "back to users", users_path(@user)%>
 <h2>About <%=@user.username.capitalize%></h2>
 <img src="<%=@user.profile_image%>"/>
 <h2>Bio <%=@user.bio%></h2>
 
+<%if current_user%>
     <%=link_to "Edit profile", edit_user_path(@user)%>
+<%end%>
+
 
 <style>
 img {
