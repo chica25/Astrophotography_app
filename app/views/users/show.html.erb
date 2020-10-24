@@ -1,6 +1,6 @@
 
 <%=link_to "Dashboard", root_path%>
-<%=link_to "back to users", users_path(@user)%>
+<%=link_to "back to Astrotographers", users_path%>
 <h2>About <%=@user.username.capitalize%></h2>
 <img src="<%=@user.profile_image%>"/>
 <h2>Bio <%=@user.bio%></h2>

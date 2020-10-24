@@ -5,14 +5,14 @@
 
 <h1>Welcome to the World of Astrophotographers!</h1>
 <h2>Start here!</h2>
-<%=form_for(@user) do |f|%>
+<%=form_for :user do |f|%>
     <%=f.label :username%>
     <%=f.text_field :username%>
     <br><br>
     <%=f.label :password%>
     <%=f.password_field :password%>
     <br><br>
-    <%=f.submit "sign up"%>
+    <%=f.submit "Sign Up"%>
 <%end%>
 
 <style>
@@ -20,4 +20,20 @@
     color: green;
 }
 </style>
+<!--
 
+<h1>Welcome to the World of Astrophotographers!</h1>
+<h2>Start here!</h2>
+<%=form_tag(signup_path) do |f|%>
+    <%=text_field_tag :username, nil, :placeholder => "Sign Up" %>
+    <%= password_field_tag :password, nil, :placeholder => 'Password' %>
+    <%= password_field_tag :profile_image, nil, :placeholder => 'profile_image' %>
+    <%= password_field_tag :bio, nil, :placeholder => 'bio' %>
+    <%=submit_tag "sign up", class: "sessions"%>
+<%end%>
+-->
+<style>
+.message {
+    color: green;
+}
+</style>

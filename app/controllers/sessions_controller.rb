@@ -6,15 +6,15 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = user.find_by(username: params[:user][:username])
+        @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
-            session[:user_id] = @user.id
-            redirect_to root_path
+             session[:user_id] = @user.id
+             redirect_to constellations_path(@constellation)
         else
-            #flash.now[:error] = "Wrong login. Please try again."
-            render :new
+             flash.now[:error] = "Wrong login. Please try again."
+             render :new
         end
-    end
+   end
 
     def omniauth
         @user = user.from_omniauth(auth)
