@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     #loads the signup form
 
     def index
-        @user = User.all
+        @users = User.all
     end
 
     def show
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
         #  flash.now[:message] = "You're in!"
-          redirect_to users_path(@user)
+          redirect_to root_path
         else
             # flash.now[:message] = "Please try again"
             render :new
@@ -29,9 +29,11 @@ class UsersController < ApplicationController
     end
 
     def edit
+        set_user
     end
 
     def update
+        set_user
         @user = User.find_by_id(params[:id])
         if @user.update(user_params)
             redirect_to user_path(@user)

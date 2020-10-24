@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
      # protect_from_forgery with: :exception
     # protect_from_forgery with: :null_session
 
-     before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_logged_in
 
     helper_method :current_user, :logged_in?
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
      end
 
     def current_user
-         user.find_by(id: session[:user_id]) if session[:user_id]
+         User.find_by(id: session[:user_id]) if session[:user_id]
         #  user.find_by(id: session[:user_id]) if session[:user_id] if session[:user_id]
         #   @current_user ||=user.find_by_id(session[:user_id]) if session[:user_id]
         # @current_user ||=user.find(session[:user_id])

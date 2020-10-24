@@ -5,10 +5,7 @@
 <img src="<%=@user.profile_image%>"/>
 <h2>Bio <%=@user.bio%></h2>
 
-<%if current_user%>
     <%=link_to "Edit profile", edit_user_path(@user)%>
-<%end%>
-
 
 <style>
 img {

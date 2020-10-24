@@ -1,3 +1,29 @@
-<h1>Welcome</h1>
-
 <%=link_to "Sign up", signup_path%> | <%=link_to "Login", login_path%>
+
+<%=link_to "users", users_path(@constellation)%>|
+<%=link_to "Constellations", constellations_path(@constellation)%>|
+<%=link_to "Add a Constellation", new_constellation_path(@constellation)%>
+
+ <br><br>
+<h2>Welcome back, <%=current_user.username.capitalize%></h2>
+<%if current_user.profile_image && current_user.bio%>
+    <img src="<%=current_user.profile_image%>" />
+    <p><%=current_user.bio%></p>
+<%else%>
+    <p>Please update profile</p>
+    <%=form_for current_user do |f|%>
+        <%=f.label :profile_image%>
+        <%=f.text_field :profile_image%>
+        <br><br>
+       <%=f.label :bio%>
+        <%= f.text_area :bio%>
+        <%=f.submit "Edit profile"%>
+    <%end%>
+<%end%>
+
+<style>
+img {
+height: 400px;
+ width: 200 px
+}
+</style>
