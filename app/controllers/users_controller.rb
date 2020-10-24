@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
+    skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
+    before_action :set_user, only: [:show, :edit]
 
     #loads the signup form
+
+    def index
+        @user = user.all
+    end
+
+    def show
+    end
+
     def new
         @user = User.new
     end
@@ -18,8 +28,24 @@ class UsersController < ApplicationController
         end
     end
 
-        def index
+    def edit
+    end
+
+    def update
+        @user = User.find_by_id(params[:id])
+        if @user.update(user_params)
+            redirect_to user_path(@user)
+        else
+            render :edit
         end
+    end
+
+    def destroy
+        set_user 
+        @user.delete
+        redirect_to signup_path
+        flash.now[:error] => "You have successfully deleted your account!"
+    end  
         
     private
     def user_params
