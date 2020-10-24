@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     #loads the signup form
 
     def index
-        @user = user.all
+        @user = User.all
     end
 
     def show
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         set_user 
         @user.delete
         redirect_to signup_path
-        flash.now[:error] => "You have successfully deleted your account!"
+        # flash.now[:error] => "You have successfully deleted your account!"
     end  
         
     private

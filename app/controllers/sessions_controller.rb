@@ -16,9 +16,6 @@ class SessionsController < ApplicationController
         end
     end
 
-    def home
-    end
-
     def omniauth
         @user = user.from_omniauth(auth)
         if @user.valid?
@@ -31,7 +28,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        redirect_to root_path
+        redirect_to login_path
     end
 
     protected 

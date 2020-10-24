@@ -1,5 +1,9 @@
-<h1>Start here!</h1>
 
+<div class="message">
+<%=flash[:message] if flash[:message]%>
+</div>
+
+<h1>Start here!</h1>
 <%=form_for(@user) do |f|%>
     <%=f.label :username%>
     <%=f.text_field :username%>
@@ -9,3 +13,10 @@
     <br><br>
     <%=f.submit "sign up"%>
 <%end%>
+
+<style>
+.message {
+    color: green;
+}
+</style>
+
