@@ -4,6 +4,6 @@
 
 <h1>Stargazing Lists</h1>
    <%@stargazings.each do |star|%>
-   <p><%=link_to star.constellation_name, stargazing_path(star)%></p>
+   <p><%=link_to star.constellation.constellation_name, stargazing_path(star)%></p>
  <%end%>   
 

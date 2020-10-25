@@ -1,10 +1,16 @@
 class ConstellationsController < ApplicationController
-    before_action :set_cons, only: [:show, :edit, :update, :delete]
+    before_action :set_cons, only: [:show, :edit, :update, :destroy]
 
     def index
         @constellations = Constellation.all.sorted
     end
 
+    # def index
+    #     @constellations = Constellation.where(:user_id => current_user.id)
+    # end
+
+
+ 
     def show
     end
 
@@ -14,6 +20,7 @@ class ConstellationsController < ApplicationController
     
     def create
         @constellation = Constellation.new(cons_params)
+        
         if @constellation.save
             redirect_to constellation_path(@constellation)
         else 

@@ -17,8 +17,10 @@
         <br><br>
        <%=f.label :bio%>
         <%= f.text_area :bio%>
+        <%=if current_user%>
         <%=f.submit "Edit profile"%>
     <%end%>
+<%end%>
 <%end%>
 
 <style>

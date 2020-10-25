@@ -1,9 +1,14 @@
 class StargazingsController < ApplicationController
     # before_action :only []
 
+    # def index
+    #     @stargazings = Stargazing.all
+    #     # @constellation = Constellation.all
+    # end
+
+
     def index
         @stargazings = Stargazing.all
-        # @constellation = Constellation.all
     end
 
     def show
@@ -12,11 +17,11 @@ class StargazingsController < ApplicationController
 
     def new
         @stargazing = Stargazing.new
-        @constellations = Constellation.all
+         @constellations = Constellation.all
     end
 
     def create 
-        @stargazing = Stargazing.create(star_params)
+        @stargazing = Stargazing.new(star_params)
         if @stargazing.save
             redirect_to stargazing_path(@stargazing)
         else

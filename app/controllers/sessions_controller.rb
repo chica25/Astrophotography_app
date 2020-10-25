@@ -20,9 +20,9 @@ class SessionsController < ApplicationController
         @user = user.from_omniauth(auth)
         if @user.valid?
              session[:user_id] = @user.id
-             redirect_to root_path   
+             redirect_to root_path
         else
-             redirect_to login_path 
+             redirect_to login_path
         end
    end
 

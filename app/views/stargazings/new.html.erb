@@ -7,7 +7,7 @@
 <h1>New stargazing</h1>
   <%=form_for @stargazing do |f|%>
         <%=f.label :constellation_id, 'Constellations:'%>
-        <%=f.collection_select :constellation_id, @constellations, :constellation_name, :id%>
+        <%=f.collection_select :constellation_id, @constellations, :id, :constellation_name%>
         <%=f.label :location%>
         <%=f.text_field :location%>
         <br><br>
@@ -17,7 +17,6 @@
         <%=f.label :time%>
         <%=f.time_field :time%>
         <br><br>
-
         <br><br>
         <%=f.submit%>
 <%end%>
@@ -27,3 +26,4 @@
   color: red;
 }
 </style>
+

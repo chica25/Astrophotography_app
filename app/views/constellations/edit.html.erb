@@ -1,21 +1,9 @@
+<%=render partial: 'cons', locals: {constellation: @constellation} %>
+
+
 <%=link_to "Home", root_path%>
 <%=link_to "Constellations", constellations_path(@constellation)%> |
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%> |
 <%=link_to "users", users_path%> |
 
 <h1>Edit Constellation</h1>
-<%=form_for @constellation do |f|%>
-    <%=f.label :constellation_name%>
-    <%=f.text_field :constellation_name%>
-    <br><br>
-    <%=f.label :star_name%>
-    <%=f.text_field :star_name%>
-    <br><br>
-    <%=f.label :image_url%>
-    <%=f.text_field :image_url%>
-    <br><br>
-    <%=f.label :description%>
-    <%=f.text_area :description%>
-    <br><br>
-    <%=f.submit%>
-<%end%>

@@ -1,3 +1,4 @@
+<%=render partial: 'cons', locals: {constellation: @constellation} %>
 
      <%if @constellation.errors.any?%>
         <h3>
@@ -16,21 +17,7 @@
 
 
 <h1>New Constellation</h1>
-  <%=form_for @constellation do |f|%>
-        <%=f.label :constellation_name%>
-        <%=f.text_field :constellation_name%>
-        <br><br>
-        <%=f.label :star_name%>
-        <%=f.text_field :star_name%>
-       <br><br>
-        <%=f.label :image_url%>
-        <%=f.text_field :image_url%>
-        <br><br>
-        <%=f.label :description%>
-        <%=f.text_area :description%>
-        <br><br>
-        <%=f.submit%>
-<%end%>
+ 
 
 <br>
 
