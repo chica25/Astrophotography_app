@@ -1,0 +1,28 @@
+
+<%=link_to "Dashboard", root_path%> |
+<%=link_to "users", users_path%> |
+ <%=link_to "Back to stargazings", stargazings_path(@stagazing)%> 
+
+
+<h1>New stargazing</h1>
+  <%=form_for @stargazing do |f|%>
+        <%=f.label :location%>
+        <%=f.text_field :location%>
+        <br><br>
+        <%=f.label :weather%>
+        <%=f.number_field :weather%>
+       <br><br>
+        <%=f.label :time%>
+        <%=f.time_field :time%>
+        <br><br>
+        <br><br>
+        <%=f.submit%>
+<%end%>
+
+
+
+<style>
+.field_with_errors {
+  color: red;
+}
+</style>

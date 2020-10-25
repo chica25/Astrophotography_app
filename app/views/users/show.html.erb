@@ -4,15 +4,14 @@
 <h2><%=@user.username.capitalize%></h2>
 <img src="<%=@user.profile_image%>"/>
 <h2>Bio <%=@user.bio%></h2>
+<%=link_to "Edit profile", edit_user_path(@user)%>
 
-<%if current_user%>
-    <%=link_to "Edit profile", edit_user_path(@user)%>
-<%end%>
 <br><br>
-<%=button_to "Delete Account", user_path(@user), :method => :delete, data:{confirm: "Are you sure you want to delete your account?"}%>
-
-
+<%if current_user%>
+    <%=button_to "Delete", user_path(@user), :method => :delete, data:{confirm: "Are you sure you want to delete your account?"}%>
+<%end%>
 <style>
+
 img {
 height: 150px;
  width: 100 px

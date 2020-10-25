@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
-    before_action :set_user, only: [:show, :edit]
+    before_action :set_user, only: [:show, :edit, :update, :delete]
 
     #loads the signup form
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = User.find_by_id(params[:id])
+        # @user = User.find_by_id(params[:id])
         if @user.update(user_params)
             redirect_to user_path(@user)
         else
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     def destroy
         set_user 
         @user.delete
-        redirect_to constellations_path
+        redirect_to users_path
         flash.now[:error] = "You have successfully deleted your account!"
     end  
         

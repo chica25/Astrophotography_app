@@ -21,6 +21,7 @@ class ConstellationsController < ApplicationController
             render :new
         end
     end
+    
         def edit
             set_cons
         end

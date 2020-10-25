@@ -1,0 +1,9 @@
+<%=link_to "Dashboard", root_path%> |
+<%=link_to "Add a Stargazing", new_stargazing_path(@stargazing)%> |
+<%=link_to "users", users_path%> 
+
+<h1>Stargazing Lists</h1>
+   <%@stargazings.each do |star|%>
+   <p><%=link_to star.stargazing_name, stargazing_path(star)%></p>
+ <%end%>   
+
