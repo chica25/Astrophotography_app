@@ -1,22 +1,7 @@
 <%=link_to "Home", root_path%> |
- <%=link_to "Back to Constellations", constellations_path(@constellation)%> |
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%> |
-
 <%=link_to "users", users_path%> 
-
-    <p><strong>Constellation Name:</strong> <%=@constellation.constellation_name%></p>
-    <p><strong>Star Name:</strong> <%=@constellation.star_name%></p>
-    <p><img src="<%=@constellation.image_url%>"/></p>
-    <p><strong>Description:</strong> <%= @constellation.description%></p>
-    <p><strong>Light Years Away from Earth:</strong> <%=@constellation.light_years_away_from_earth%></p>
-    
-    <%if current_user%>
-    <%=link_to "Edit", edit_constellation_path(@constellation)%> | <%=link_to "Delete", constellation_path(@constellation), method: :delete%> |  <%=link_to "Add a Stargazing", new_constellation(@constellation)%> 
-<%end%>
-
-<style>
-    img {
-    height: 400px;
-    width: 200 px
-    }
-</style>
+<h1>Constellation Lists</h1>
+   <%@constellations.each do |cons|%>
+   <p><%=link_to cons.constellation_name, constellation_path(cons)%></p>
+ <%end%>   

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # get 'stargazing/new'
   root 'sessions#home'
   
   get '/login', to: 'sessions#new'
@@ -17,10 +18,10 @@ Rails.application.routes.draw do
     
     resources :stargazings
     
-      resources :constellations  #do
-        # resources :stargazings
+      resources :constellations do
+        resources :stargazings
           #resources :stargazings, except: [:index]
-      # end
+      end
     end
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   

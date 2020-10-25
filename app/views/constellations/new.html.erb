@@ -1,0 +1,43 @@
+
+     <%if @constellation.errors.any?%>
+        <h3>
+            <p><%=pluralize(@constellation.errors.count, "error")%></p>
+        </h3>
+    <ul>
+            <%@constellation.errors.full_messages.each do |m|%>
+            <p><li><%=m%></li></p>
+      <%end%>
+    </ul>
+<%end%>
+
+<%=link_to "Home", root_path%> |
+<%=link_to "users", users_path%> |
+ <%=link_to "Back to Constellations", constellations_path(@constellation)%> 
+
+
+<h1>New Constellation</h1>
+  <%=form_for @constellation do |f|%>
+        <%=f.label :constellation_name%>
+        <%=f.text_field :constellation_name%>
+        <br><br>
+        <%=f.label :star_name%>
+        <%=f.text_field :star_name%>
+       <br><br>
+        <%=f.label :image_url%>
+        <%=f.text_field :image_url%>
+        <br><br>
+        <%=f.label :description%>
+        <%=f.text_area :description%>
+        <br><br>
+        <%=f.submit%>
+<%end%>
+
+<br>
+
+
+<style>
+.field_with_errors {
+  color: red;
+}
+</style>
+ 
