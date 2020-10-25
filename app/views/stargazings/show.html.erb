@@ -1,0 +1,8 @@
+<h1><%=@constellation.constellation_name%></h1>
+
+<h2><%=pluralize(@constellation.stargazings.count, "Constellation")%></h2>
+<ul>
+    <%@constellation.stargazings.each do |star|%>
+    <li><%= link_to star.constellation_name, stargazing_path(star)%></li>
+    <%end%>
+</ul>

@@ -6,7 +6,6 @@ class ConstellationsController < ApplicationController
     end
 
     def show
-        set_cons
     end
 
     def new
@@ -21,13 +20,11 @@ class ConstellationsController < ApplicationController
             render :new
         end
     end
-    
+
         def edit
-            set_cons
         end
 
         def update
-            set_cons
             if @constellation.update(cons_params)
                 redirect_to constellation_path(@constellation)
             else
@@ -36,7 +33,6 @@ class ConstellationsController < ApplicationController
         end
 
         def destroy
-            set_cons
             if @constellation.destroy
                 redirect_to constellations_path
             else

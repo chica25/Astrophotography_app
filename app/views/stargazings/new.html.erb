@@ -1,25 +1,26 @@
 
 <%=link_to "Dashboard", root_path%> |
 <%=link_to "users", users_path%> |
- <%=link_to "Back to stargazings", stargazings_path(@stagazing)%> 
+<%=link_to "Back to stargazings", stargazings_path(@stargazing)%>
 
 
 <h1>New stargazing</h1>
   <%=form_for @stargazing do |f|%>
+        <%=f.label :constellation_id, 'Constellations:'%>
+        <%=f.collection_select :constellation_id, @constellations, :constellation_name, :id%>
         <%=f.label :location%>
         <%=f.text_field :location%>
         <br><br>
         <%=f.label :weather%>
         <%=f.number_field :weather%>
-       <br><br>
+         <br><br>
         <%=f.label :time%>
         <%=f.time_field :time%>
         <br><br>
+
         <br><br>
         <%=f.submit%>
 <%end%>
-
-
 
 <style>
 .field_with_errors {

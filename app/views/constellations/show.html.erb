@@ -10,7 +10,7 @@
     <p><strong>Description:</strong><%= @constellation.description%></p>
     
     <%if current_user%>
-    <%=link_to "Edit", edit_constellation_path(@constellation)%> | <%=link_to "Delete", constellation_path(@constellation), method: :delete%> |  <%=link_to "Add a Stargazing", new_constellation_path(@constellation)%>
+    <%=link_to "Edit", edit_constellation_path(@constellation)%> | <%=link_to "Delete", constellation_path(@constellation), method: :delete%> |  <%=link_to "Add a Stargazing", new_constellation_stargazing_path(@constellation)%>
 <%end%>
 
 <style>
