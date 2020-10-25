@@ -44,8 +44,8 @@ class UsersController < ApplicationController
     def destroy
         set_user 
         @user.delete
-        redirect_to signup_path
-        # flash.now[:error] => "You have successfully deleted your account!"
+        redirect_to constellations_path
+        flash.now[:error] = "You have successfully deleted your account!"
     end  
         
     private

@@ -39,7 +39,7 @@ class ConstellationsController < ApplicationController
             if @constellation.destroy
                 redirect_to constellations_path
             else
-                flash.now[:error] ="Please try again"
+                flash.now[:error] = "Please try again"
             end
         end
 
